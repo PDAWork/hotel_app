@@ -11,7 +11,7 @@ extension AppPageExtension on Pages {
     return switch (this) {
       Pages.otel => '/',
       Pages.nomer => 'nomer/:title',
-      Pages.reservation => '/reservation',
+      Pages.reservation => 'reservation',
       Pages.pay => '/pay',
       Pages.error => '/error',
     };
