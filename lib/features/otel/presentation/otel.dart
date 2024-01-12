@@ -51,7 +51,7 @@ class Otel extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CaruselApp(),
+                        const CaruselApp(),
                         const SizedBox(height: 16),
                         // Star
                         Container(

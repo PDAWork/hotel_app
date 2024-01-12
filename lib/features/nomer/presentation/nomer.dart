@@ -30,7 +30,7 @@ class Nomer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const CaruselApp(),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 const Text(
                   'Стандартный с видом на бассейн или сад',
                   style: TextStyle(
@@ -77,7 +77,7 @@ class Nomer extends StatelessWidget {
                     children: [
                       Text(
                         'Подробнее о номере',
-                        style: const TextStyle(color: text3Color),
+                        style:  TextStyle(color: text3Color),
                       ),
                       Icon(
                         Icons.arrow_forward_ios_rounded,

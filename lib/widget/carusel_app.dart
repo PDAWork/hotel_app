@@ -32,7 +32,7 @@ class _CaruselAppState extends State<CaruselApp> {
             scrollDirection: Axis.horizontal,
             itemCount: imgUrl.length,
             itemBuilder: (context, index) {
-              return Container(
+              return SizedBox(
                 height: 257,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
