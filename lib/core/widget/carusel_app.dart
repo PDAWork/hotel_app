@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-const List<String> imgUrl = [
-  "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
-  "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
-  "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
-];
-
 class CaruselApp extends StatefulWidget {
   const CaruselApp({
     super.key,
+    required this.imgUrl,
   });
+
+  final List<String> imgUrl;
 
   @override
   State<CaruselApp> createState() => _CaruselAppState();
@@ -30,14 +27,14 @@ class _CaruselAppState extends State<CaruselApp> {
             }),
             controller: _controller,
             scrollDirection: Axis.horizontal,
-            itemCount: imgUrl.length,
+            itemCount: widget.imgUrl.length,
             itemBuilder: (context, index) {
               return SizedBox(
                 height: 257,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    imgUrl[index],
+                    widget.imgUrl[index],
                     fit: BoxFit.fill,
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
@@ -78,7 +75,7 @@ class _CaruselAppState extends State<CaruselApp> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: List.generate(
-                  imgUrl.length,
+                  widget.imgUrl.length,
                   (index) => Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 5,

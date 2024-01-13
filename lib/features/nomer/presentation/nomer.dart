@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_application/routes/app_router.dart';
 import 'package:test_application/routes/router_utils.dart';
 import 'package:test_application/style/color_app.dart';
-import 'package:test_application/widget/carusel_app.dart';
+import 'package:test_application/core/widget/carusel_app.dart';
 
 const List<String> gen = ['Все включено', 'Кондиционер'];
 
@@ -29,7 +29,9 @@ class Nomer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CaruselApp(),
+                const CaruselApp(imgUrl: [
+                  'https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg'
+                ]),
                 const SizedBox(height: 8),
                 const Text(
                   'Стандартный с видом на бассейн или сад',
@@ -77,7 +79,7 @@ class Nomer extends StatelessWidget {
                     children: [
                       Text(
                         'Подробнее о номере',
-                        style:  TextStyle(color: text3Color),
+                        style: TextStyle(color: text3Color),
                       ),
                       Icon(
                         Icons.arrow_forward_ios_rounded,
@@ -123,12 +125,12 @@ class Nomer extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        AppRouter.router.goNamed(
-                          Pages.reservation.screenName,
-                          pathParameters: {
-                            "title": title,
-                          },
-                        );
+                        AppRouter.router.goNamed(Pages.reservation.screenName,
+                            extra: {"title": title}
+                            // pathParameters: {
+                            //   "title": title,
+                            // },
+                            );
                       },
                       child: const Text('К выбору номера'),
                     ),

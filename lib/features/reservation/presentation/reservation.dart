@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:test_application/features/reservation/presentation/widget/card_tourist_list.dart';
 import 'package:test_application/features/reservation/presentation/widget/custom_text_filed.dart';
+import 'package:test_application/routes/app_router.dart';
+import 'package:test_application/routes/router_utils.dart';
 import 'package:test_application/style/color_app.dart';
 
+import 'widget/card_cost.dart';
+import 'widget/card_text_info_reservation.dart';
+
 class Reservation extends StatelessWidget {
-  Reservation({super.key});
+  Reservation({super.key, required this.title});
+  final String title;
   final TextEditingController _controllerPhone = TextEditingController();
   final MaskTextInputFormatter _maskFormatterPhone = MaskTextInputFormatter(
     mask: '+7 (###) ###-##-##',
     filter: {"#": RegExp(r'[0-9]')},
   );
   final TextEditingController _controllerEmail = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +242,12 @@ class Reservation extends StatelessWidget {
                         Size.fromHeight(44),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      AppRouter.router.goNamed(
+                        Pages.pay.screenName,
+                        extra: {"title": title},
+                      );
+                    },
                     child: const Text('К выбору номера'),
                   ),
                 ],
@@ -246,82 +256,6 @@ class Reservation extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class Cost extends StatelessWidget {
-  const Cost({
-    super.key,
-    required this.leftTitle,
-    required this.rigthTitle,
-    this.colorTitileRigth = true,
-  });
-
-  final String leftTitle;
-  final String rigthTitle;
-  final bool colorTitileRigth;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          leftTitle,
-          style: const TextStyle(
-            color: text4Color,
-            fontSize: 16,
-          ),
-        ),
-        Text(
-          rigthTitle,
-          style: TextStyle(
-            color: colorTitileRigth ? text1Color : text3Color,
-            fontWeight: colorTitileRigth ? null : FontWeight.w600,
-            fontSize: 16,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class TextInfoReservation extends StatelessWidget {
-  const TextInfoReservation({
-    super.key,
-    required this.leftTitle,
-    required this.rightTitle,
-  });
-
-  final String leftTitle;
-  final String rightTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 2,
-          child: Text(
-            leftTitle,
-            style: const TextStyle(
-              color: text4Color,
-              fontSize: 16,
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(
-            rightTitle,
-            style: const TextStyle(
-              color: text1Color,
-              fontSize: 16,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
