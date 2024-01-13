@@ -23,7 +23,6 @@ class _CardTouristListState extends State<CardTouristList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ..._touristList,
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(

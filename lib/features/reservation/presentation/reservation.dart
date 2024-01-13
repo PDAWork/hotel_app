@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:test_application/features/reservation/presentation/widget/card_tourist_list.dart';
 import 'package:test_application/features/reservation/presentation/widget/custom_text_filed.dart';
 import 'package:test_application/style/color_app.dart';
 
 class Reservation extends StatelessWidget {
-  const Reservation({super.key});
+  Reservation({super.key});
+  final TextEditingController _controllerPhone = TextEditingController();
+  final MaskTextInputFormatter _maskFormatterPhone = MaskTextInputFormatter(
+    mask: '+7 (###) ###-##-##',
+    filter: {"#": RegExp(r'[0-9]')},
+  );
+  final TextEditingController _controllerEmail = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,22 +152,35 @@ class Reservation extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.white,
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Информация о покупателе',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(height: 16),
-                      CustomTextField(lable: 'Номер телефона'),
-                      SizedBox(height: 8),
-                      CustomTextField(lable: 'Почта'),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 16),
+                      CustomTextField(
+                        lable: 'Номер телефона',
+                        controller: _controllerPhone,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: [_maskFormatterPhone],
+                        errorText: 'Проверьте корректность заполнения поля',
+                      ),
+                      const SizedBox(height: 8),
+                      CustomTextField(
+                        lable: 'Почта',
+                        controller: _controllerEmail,
+                        keyboardType: TextInputType.emailAddress,
+                        regExp:
+                            RegExp(r'^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+'),
+                        errorText: 'Некорректный формат почты',
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
                         'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
                         style: TextStyle(
                           fontSize: 14,

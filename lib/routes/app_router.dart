@@ -28,7 +28,7 @@ class AppRouter {
                   path: Pages.reservation.screenPath,
                   name: Pages.reservation.screenName,
                   builder: (context, state) {
-                    return const Reservation();
+                    return Reservation();
                   },
                 )
               ],
