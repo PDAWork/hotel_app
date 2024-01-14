@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:test_application/features/otel/data/model/about_the_hotel_model.dart';
+import 'package:test_application/features/hotel/data/model/about_the_hotel_model.dart';
 
 part "hotel_model.freezed.dart";
 part "hotel_model.g.dart";

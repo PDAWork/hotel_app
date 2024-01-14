@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_application/dj/service_locator.dart';
+import 'package:test_application/features/hotel/presentation/cubit/hotel_cubit.dart';
+import 'package:test_application/features/hotel/presentation/hotel.dart';
 import 'package:test_application/features/nomer/presentation/nomer.dart';
-import 'package:test_application/features/otel/presentation/cubit/hotel_cubit.dart';
-import 'package:test_application/features/otel/presentation/hotel.dart';
 import 'package:test_application/features/pay/presentation/pay.dart';
 import 'package:test_application/features/reservation/presentation/reservation.dart';
 

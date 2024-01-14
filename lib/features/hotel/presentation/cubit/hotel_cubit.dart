@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:test_application/features/otel/domain/entity/hotel_entity.dart';
-import 'package:test_application/features/otel/domain/usecase/hotel_use_case.dart';
+import 'package:test_application/features/hotel/domain/entity/hotel_entity.dart';
+import 'package:test_application/features/hotel/domain/usecase/hotel_use_case.dart';
 
 part 'hotel_state.dart';
 

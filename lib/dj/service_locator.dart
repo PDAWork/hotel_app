@@ -2,11 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:test_application/core/network/api_entrypoints.dart';
-import 'package:test_application/features/otel/data/data_source/hotel_remote.dart';
-import 'package:test_application/features/otel/data/repository/hotel_repository_impl.dart';
-import 'package:test_application/features/otel/domain/repository/hotel_repository.dart';
-import 'package:test_application/features/otel/domain/usecase/hotel_use_case.dart';
-import 'package:test_application/features/otel/presentation/cubit/hotel_cubit.dart';
+import 'package:test_application/features/hotel/data/data_source/hotel_remote.dart';
+import 'package:test_application/features/hotel/data/repository/hotel_repository_impl.dart';
+import 'package:test_application/features/hotel/domain/repository/hotel_repository.dart';
+import 'package:test_application/features/hotel/domain/usecase/hotel_use_case.dart';
+import 'package:test_application/features/hotel/presentation/cubit/hotel_cubit.dart';
 
 final sl = GetIt.instance;
 

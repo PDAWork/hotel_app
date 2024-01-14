@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_application/features/otel/presentation/cubit/hotel_cubit.dart';
-import 'package:test_application/features/otel/presentation/widget/card_app.dart';
+import 'package:test_application/features/hotel/presentation/cubit/hotel_cubit.dart';
+import 'package:test_application/features/hotel/presentation/widget/card_app.dart';
 import 'package:test_application/routes/app_router.dart';
 import 'package:test_application/routes/router_utils.dart';
 import 'package:test_application/style/color_app.dart';

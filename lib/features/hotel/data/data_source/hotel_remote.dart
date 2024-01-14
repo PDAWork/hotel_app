@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:test_application/core/error/exeption.dart';
 import 'package:test_application/core/network/api_entrypoints.dart';
-import 'package:test_application/features/otel/data/model/hotel_model.dart';
+import 'package:test_application/features/hotel/data/model/hotel_model.dart';
 
 abstract class HotelRemote {
   Future<HotelModel> hotel();

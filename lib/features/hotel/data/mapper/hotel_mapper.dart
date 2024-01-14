@@ -1,6 +1,6 @@
-import 'package:test_application/features/otel/data/mapper/about_the_hotel_mapper.dart';
-import 'package:test_application/features/otel/data/model/hotel_model.dart';
-import 'package:test_application/features/otel/domain/entity/hotel_entity.dart';
+import 'package:test_application/features/hotel/data/mapper/about_the_hotel_mapper.dart';
+import 'package:test_application/features/hotel/data/model/hotel_model.dart';
+import 'package:test_application/features/hotel/domain/entity/hotel_entity.dart';
 
 extension HotelMapper on HotelModel {
   HotelEntity toEntity() {
