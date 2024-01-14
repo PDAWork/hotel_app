@@ -227,7 +227,14 @@ class Hotel extends StatelessWidget {
                   Container(
                     padding:
                         const EdgeInsets.only(left: 16, top: 12, right: 16),
-                    decoration: const BoxDecoration(color: Colors.white),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      border: Border(
+                        top: BorderSide(
+                          color: Color(0xffE8E9EC),
+                        ),
+                      ),
+                    ),
                     child: SafeArea(
                       child: ElevatedButton(
                         style: ButtonStyle(

@@ -12,6 +12,11 @@ import 'package:test_application/features/nomer/data/repository/nomer_repository
 import 'package:test_application/features/nomer/domain/repository/nomer_repository.dart';
 import 'package:test_application/features/nomer/domain/use_case/nomer_use_case.dart';
 import 'package:test_application/features/nomer/presentation/cubit/nomer_cubit.dart';
+import 'package:test_application/features/reservation/data/data_source/reservation_remote.dart';
+import 'package:test_application/features/reservation/data/repository/reservation_repository_impl.dart';
+import 'package:test_application/features/reservation/domain/repository/reservation_repository.dart';
+import 'package:test_application/features/reservation/domain/use_case/reservation_use_case.dart';
+import 'package:test_application/features/reservation/presentation/cubit/reservation_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -20,11 +25,13 @@ Future<void> init() async {
 
   sl.registerFactory(() => HotelCubit(sl()));
   sl.registerFactory(() => NomerCubit(sl()));
+  sl.registerFactory(() => ReservationCubit(sl()));
 
   // UseCases
 
   sl.registerLazySingleton(() => HotelUseCase(sl()));
   sl.registerLazySingleton(() => NomerUseCase(sl()));
+  sl.registerLazySingleton(() => ReservationUseCase(sl()));
 
   // Repository
 
@@ -39,6 +46,14 @@ Future<void> init() async {
   sl.registerLazySingleton<NomerRepository>(
     () => NomerRepositoryImpl(
       nomerRemote: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton<ReservationRemote>(
+      () => ReservationRemoteImpl(dio: sl()));
+  sl.registerLazySingleton<ReservationRepository>(
+    () => ReservationRepositoryImpl(
+      remote: sl(),
     ),
   );
 

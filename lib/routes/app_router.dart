@@ -7,6 +7,8 @@ import 'package:test_application/features/nomer/domain/use_case/nomer_use_case.d
 import 'package:test_application/features/nomer/presentation/cubit/nomer_cubit.dart';
 import 'package:test_application/features/nomer/presentation/nomer.dart';
 import 'package:test_application/features/pay/presentation/pay.dart';
+import 'package:test_application/features/reservation/domain/use_case/reservation_use_case.dart';
+import 'package:test_application/features/reservation/presentation/cubit/reservation_cubit.dart';
 import 'package:test_application/features/reservation/presentation/reservation.dart';
 
 import 'router_utils.dart';
@@ -32,7 +34,7 @@ class AppRouter {
                 final data = state.extra as Map<String, dynamic>;
                 // final title = state.pathParameters['title'] ?? "Название отеля";
                 return BlocProvider(
-                  create: (context) => NomerCubit(sl<NomerUseCase>())..init(),
+                  create: (context) => sl<NomerCubit>()..init(),
                   child: Nomer(title: data['title']),
                 );
               },
@@ -42,7 +44,10 @@ class AppRouter {
                   name: Pages.reservation.screenName,
                   builder: (context, state) {
                     final data = state.extra as Map<String, dynamic>;
-                    return Reservation(title: data['title']);
+                    return BlocProvider(
+                      create: (context) => sl<ReservationCubit>()..init(),
+                      child: Reservation(title: data['title']),
+                    );
                   },
                   routes: [
                     GoRoute(
