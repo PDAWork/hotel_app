@@ -10,7 +10,7 @@ class CardTouristList extends StatefulWidget {
 }
 
 class _CardTouristListState extends State<CardTouristList> {
-  final List<Widget> _touristList = [];
+  List<Widget> _touristList = [];
   final List<String> _titleList = [
     'Первый турист',
     'Второй турист',
@@ -20,9 +20,16 @@ class _CardTouristListState extends State<CardTouristList> {
   ];
 
   @override
+  void dispose() {
+    _touristList = [];
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        ..._touristList,
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
