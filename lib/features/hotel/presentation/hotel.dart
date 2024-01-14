@@ -56,7 +56,7 @@ class Hotel extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                 CaruselApp(imgUrl: entity.imageUrls),
+                                CaruselApp(imgUrl: entity.imageUrls),
                                 const SizedBox(height: 16),
                                 // Star
                                 Container(
@@ -111,7 +111,7 @@ class Hotel extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text(
-                                      'от ${entity.minimalPrice}',
+                                      'от ${entity.minimalPrice} ₽',
                                       style: const TextStyle(
                                         fontSize: 30,
                                         fontWeight: FontWeight.w600,

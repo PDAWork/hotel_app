@@ -3,7 +3,7 @@ import 'package:test_application/core/error/exeption.dart';
 import 'package:test_application/core/network/api_entrypoints.dart';
 import 'package:test_application/features/hotel/data/model/hotel_model.dart';
 
-abstract class HotelRemote {
+abstract interface class  HotelRemote {
   Future<HotelModel> hotel();
 }
 
